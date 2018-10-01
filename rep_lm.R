@@ -1,6 +1,6 @@
 rep_lm<-function(x,y,ci=FALSE){
 ## x is data.frame of predictors, y is vector of an aoutcome as a factor
-## output is returned as coefficient, or if or=TRUE as OR with 95 % CI.
+## output is returned as coefficient, or if ci=TRUE as coefficient with 95 % CI.
 ## The confint() function is rather slow, causing the whole function to hang when including many predictors and calculating the ORs with CI.
   
   require(broom)
