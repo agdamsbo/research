@@ -4,7 +4,7 @@ rep_lm<-function(x,y,ci=FALSE){
 ## The confint() function is rather slow, causing the whole function to hang when including many predictors and calculating the ORs with CI.
   
   require(broom)
-if (!is.factor(y)){stop("Some kind of error message would be nice, but y should be a factor!")}
+if (is.factor(y)){stop("Some kind of error message would be nice, but y should not be a factor!")}
   
     if (ci==TRUE){
       
