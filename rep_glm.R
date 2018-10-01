@@ -6,7 +6,7 @@ rep_glm<-function(x,y,ci=FALSE){
   require(broom)
 if (!is.factor(y)){stop("Some kind of error message would be nice, but y should be a factor!")}
   
-    if (or==TRUE){
+    if (ci==TRUE){
       
              df<-data.frame(matrix(ncol = 3))
   names(df)<-c("pred","or_ci","pv")
@@ -38,7 +38,7 @@ if (!is.factor(y)){stop("Some kind of error message would be nice, but y should 
       
     }}
     
-  if (or==FALSE){
+  if (ci==FALSE){
      
        df<-data.frame(matrix(ncol = 3))
   names(df)<-c("pred","b","pv")
