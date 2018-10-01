@@ -9,7 +9,7 @@ if (is.factor(y)){stop("Some kind of error message would be nice, but y should n
     if (ci==TRUE){
       
              df<-data.frame(matrix(ncol = 3))
-  names(df)<-c("pred","or_ci","pv")
+  names(df)<-c("pred","co_ci","pv")
       
       for(i in 1:ncol(x)){
      m<-lm(y~x[,i])
@@ -38,7 +38,7 @@ if (is.factor(y)){stop("Some kind of error message would be nice, but y should n
       
     }}
     
-  if (or==FALSE){
+  if (ci==FALSE){
      
        df<-data.frame(matrix(ncol = 3))
   names(df)<-c("pred","b","pv")
