@@ -1,9 +1,13 @@
-rep_glm<-function(x,y,ci=FALSE){
+rep_glm<-function(y,v1,string,ci=FALSE,data,v2=NULL,v3=NULL){
 ## x is data.frame of predictors, y is vector of an aoutcome as a factor
 ## output is returned as coefficient, or if or=TRUE as OR with 95 % CI.
 ## The confint() function is rather slow, causing the whole function to hang when including many predictors and calculating the ORs with CI.
   
   require(broom)
+  
+  d<-data
+  x<-select(d,one_of(c(string)))
+  
 if (!is.factor(y)){stop("Some kind of error message would be nice, but y should be a factor!")}
   
     if (ci==TRUE){
@@ -12,7 +16,7 @@ if (!is.factor(y)){stop("Some kind of error message would be nice, but y should 
   names(df)<-c("pred","or_ci","pv")
       
       for(i in 1:ncol(x)){
-     m<-glm(y~x[,i],family = binomial())
+     m<-glm(y~v1+x[,i],family = binomial())
      
      l<-suppressMessages(round(exp(confint(m))[-1,1],2))
      u<-suppressMessages(round(exp(confint(m))[-1,2],2))
@@ -44,7 +48,7 @@ if (!is.factor(y)){stop("Some kind of error message would be nice, but y should 
   names(df)<-c("pred","b","pv")
      
   for(i in 1:ncol(x)){
-     m<-glm(y~x[,i],family = binomial())
+     m<-glm(y~v1+x[,i],family = binomial())
      
      b<-round(coef(m)[-1],3)
      
