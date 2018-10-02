@@ -80,11 +80,11 @@ df<-cbind(df,t)
 
 if(logistic==TRUE){
 
-if (is.factor(y)){stop("Some kind of error message would be nice, but y should be a factor!")}
+if (!is.factor(y)){stop("Some kind of error message would be nice, but y should be a factor!")}
 
 if (is.null(v2)&is.null(v3)){     
   
-  e<-as.numeric(round(coef(glm(y~v1,family=binomial())),3))[1]
+  e<-as.numeric(round(exp(coef(glm(y~v1,family=binomial()))),3))[1]
      
        df<-data.frame(pred="base",b=e)
   
@@ -92,7 +92,7 @@ if (is.null(v2)&is.null(v3)){
 
      m<-glm(y~v1+x[,i],family=binomial())
      
-     b<-as.numeric(round(coef(m),3))[1]
+     b<-as.numeric(round(exp(coef(m)),3))[1]
   
      v<-x[,i]
      
@@ -106,7 +106,7 @@ df<-cbind(df,t)
 
        if (!is.null(v2)&is.null(v3)){   
          
-           e<-as.numeric(round(coef(glm(y~v1+v2,family=binomial())),3))[1]
+           e<-as.numeric(round(exp(coef(glm(y~v1+v2,family=binomial()))),3))[1]
      
        df<-data.frame(pred="base",b=e)
        
@@ -114,7 +114,7 @@ df<-cbind(df,t)
 
      m<-glm(y~v1+v2+x[,i],family=binomial())
      
-     b<-as.numeric(round(coef(m),3))[1]
+     b<-as.numeric(round(exp(coef(m)),3))[1]
   
      v<-x[,i]
 
@@ -128,7 +128,7 @@ df<-cbind(df,t)
        
        if (!is.null(v2)&!is.null(v3)){   
          
-           e<-as.numeric(round(coef(glm(y~v1+v2+v3,family=binomial())),3))[1]
+           e<-as.numeric(round(exp(coef(glm(y~v1+v2+v3,family=binomial()))),3))[1]
      
        df<-data.frame(pred="base",b=e)
        
@@ -136,7 +136,7 @@ df<-cbind(df,t)
 
      m<-glm(y~v1+v2+v3+x[,i],family=binomial())
      
-     b<-as.numeric(round(coef(m),3))[1]
+     b<-as.numeric(round(exp(coef(m)),3))[1]
      
      v<-x[,i]
     
