@@ -1,5 +1,7 @@
 cie_test<-function(v1,v2=NULL,v3=NULL,y,string,data){
-## Calculating variables, that should be included for a change in estimate analysis. v1-3 are possible locked variables, y is the outcome vector. String defines variables to test, and is provided as vector of variable names. Use dput().
+## Calculating variables, that should be included for a change in estimate analysis. 
+## v1-3 are possible locked variables, y is the outcome vector. 
+## String defines variables to test, and is provided as vector of variable names. Use dput().
   
   require(broom)
   
