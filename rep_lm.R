@@ -72,7 +72,7 @@ if (is.factor(y)){stop("Some kind of error message would be nice, but y should n
        
        else {pred<-names(x)[i]}
      
-     df<-rbind(df,cbind(pred,b,pv))
+     df<-rbind(df,cbind(pred,b,pv,t))
   }}
   
   return(df)
