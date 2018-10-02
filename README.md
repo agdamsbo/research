@@ -17,6 +17,7 @@ In need of a suitable function to perform the chi-squared test of Hardy-Weinberg
 
 ### Bivariate logistic regression analyses
 - rep_glm.R -- for a stepwise gating regression approach this provides several bivariate logistic regression analyses for columns of a dataframe specified by af vector of the format c(). Use the dput() to obtain names of dataframe in correct format.
+- cie_test.R -- Analysis of change in estimate approach with cut at 10 %
 
 
 ## Research year
