@@ -1,4 +1,4 @@
-cie_test<-function(v1,v2=NULL,v3=NULL,y,string,data){
+cie_test<-function(v1,v2=NULL,v3=NULL,y,string,data,cut=0.1){
 ## Calculating variables, that should be included for a change in estimate analysis. 
 ## v1-3 are possible locked variables, y is the outcome vector. 
 ## String defines variables to test, and is provided as vector of variable names. Use dput().
@@ -28,7 +28,7 @@ if (is.null(v2)&is.null(v3)){
 
      df<-rbind(df,cbind(pred,b))
   }
-       t<-c(NA,ifelse(abs(e-as.numeric(df[-1,2]))>=(e*.1),"include","drop"))
+       t<-c(NA,ifelse(abs(e-as.numeric(df[-1,2]))>=(e*cut),"include","drop"))
 df<-cbind(df,t)  
        }
 
@@ -50,7 +50,7 @@ df<-cbind(df,t)
 
      df<-rbind(df,cbind(pred,b))
   }
-       t<-c(NA,NA,ifelse(abs(e-as.numeric(df[3:nrow(df),2]))>=(e*.1),"include","drop"))
+       t<-c(NA,NA,ifelse(abs(e-as.numeric(df[3:nrow(df),2]))>=(e*cut),"include","drop"))
 df<-cbind(df,t)  
        }
        
@@ -73,7 +73,7 @@ df<-cbind(df,t)
      df<-rbind(df,cbind(pred,b))
      
   }
-       t<-c(NA,NA,NA,ifelse(abs(e-as.numeric(df[4:nrow(df),2]))>=(e*.1),"include","drop"))
+       t<-c(NA,NA,NA,ifelse(abs(e-as.numeric(df[4:nrow(df),2]))>=(e*cut),"include","drop"))
 df<-cbind(df,t)  
 }
 
