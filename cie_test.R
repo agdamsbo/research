@@ -1,4 +1,4 @@
-cie_test<-function(y,v1,string,data,logistic=FALSE,ci=NULL,cut=0.1,v2=NULL,v3=NULL){
+cie_test<-function(y,v1,string,data,logistic=FALSE,cut=0.1,v2=NULL,v3=NULL){
 ## Calculating variables, that should be included for a change in estimate analysis. 
 ## v1-3 are possible locked variables, y is the outcome vector. 
 ## String defines variables to test, and is provided as vector of variable names. Use dput().
