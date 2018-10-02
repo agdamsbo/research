@@ -15,6 +15,7 @@ if (is.null(v2)&is.null(v3)){
   
   e<-as.numeric(round(coef(lm(y~v1)),3))[1]
      
+  
        df<-data.frame(pred="base",b=e)
   
   for(i in 1:ncol(x)){
