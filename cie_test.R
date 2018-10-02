@@ -50,7 +50,7 @@ df<-cbind(df,t)
 
      df<-rbind(df,cbind(pred,b))
   }
-       t<-c(NA,NA,ifelse(abs(e-as.numeric(df[3:nrow(df),2]))>=(e*cut),"include","drop"))
+       t<-c(NA,NA,ifelse(abs(e-as.numeric(-1,2]))>=(e*cut),"include","drop"))
 df<-cbind(df,t)  
        }
        
@@ -73,7 +73,7 @@ df<-cbind(df,t)
      df<-rbind(df,cbind(pred,b))
      
   }
-       t<-c(NA,NA,NA,ifelse(abs(e-as.numeric(df[4:nrow(df),2]))>=(e*cut),"include","drop"))
+       t<-c(NA,NA,NA,ifelse(abs(e-as.numeric(df[-1,2]))>=(e*cut),"include","drop"))
 df<-cbind(df,t)  
 }
 
