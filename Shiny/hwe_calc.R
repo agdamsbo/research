@@ -7,10 +7,9 @@
 #'    http://shiny.rstudio.com/
 #'
 #'
-#' Brugerønsker:
+#' User requests:
 #'  
-#' - fordeling vises i cirkeldiagram √
-#' - allel-fordeling √
+#' - Proper labelling of chart
 
 library(shiny)
 library(ggplot2)
